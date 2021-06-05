@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Raspbian WiFi Configuration Portal (RaspAP).dd
+ * Raspbian WiFi Configuration Portal (RaspAP)
  *
  * Simple AP setup & WiFi management for Debian-based devices.
  * Enables use of simple web interface rather than SSH to control WiFi and related services  on the Raspberry Pi.
@@ -15,7 +15,7 @@
  * @author  Bill Zimmerman <billzimmerman@gmail.com>
  * @license GNU General Public License, version 3 (GPL-3.0)
  * @version 2.6.5
- * @link    https://github.com/giannoniagustin/respap-webgui/
+ * @link    https://github.com/raspap/raspap-webgui/
  * @link    https://raspap.com/
  * @see     http://sirlagz.net/2013/02/08/raspap-webgui/
  *
@@ -65,7 +65,7 @@ $bridgedEnabled = getBridgedState();
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title><?php echo _("RespimonAP WiFi Configuration Portal"); ?></title>
+    <title><?php echo _("RaspAP WiFi Configuration Portal"); ?></title>
 
     <!-- Bootstrap Core CSS -->
     <link href="dist/bootstrap/css/bootstrap.css" rel="stylesheet">
@@ -111,9 +111,7 @@ $bridgedEnabled = getBridgedState();
         <a class="sidebar-brand d-flex align-items-center justify-content-center" href="wlan0_info">
           <div class="sidebar-brand-text ml-1"><?php echo RASPI_BRAND_TEXT; ?></div>
         </a>
-        
         <!-- Divider -->
-        <!--
         <hr class="sidebar-divider my-0">
         <div class="row">
           <div class="col-xs ml-3 sidebar-brand-icon">
@@ -135,65 +133,8 @@ $bridgedEnabled = getBridgedState();
         <li class="nav-item">
           <a class="nav-link" href="wlan0_info"><i class="fas fa-tachometer-alt fa-fw mr-2"></i><span class="nav-label"><?php echo _("Dashboard"); ?></span></a>
         </li>
-          <?php if (RASPI_HOTSPOT_ENABLED) : ?>
-        <li class="nav-item">
-          <a class="nav-link" href="hostapd_conf"><i class="far fa-dot-circle fa-fw mr-2"></i><span class="nav-label"><?php echo _("Hotspot"); ?></a>
-        </li>
-          <?php endif; ?>
-          <?php if (RASPI_DHCP_ENABLED && !$bridgedEnabled) : ?>
-        <li class="nav-item">
-          <a class="nav-link" href="dhcpd_conf"><i class="fas fa-exchange-alt fa-fw mr-2"></i><span class="nav-label"><?php echo _("DHCP Server"); ?></a>
-        </li>
-          <?php endif; ?>
-          <?php if (RASPI_ADBLOCK_ENABLED && !$bridgedEnabled) : ?>
-        <li class="nav-item">
-           <a class="nav-link" href="adblock_conf"><i class="far fa-hand-paper fa-fw mr-2"></i><span class="nav-label"><?php echo _("Ad Blocking"); ?></a>
-        </li>
-          <?php endif; ?>
-          <?php if (RASPI_NETWORK_ENABLED) : ?>
-        <li class="nav-item">
-           <a class="nav-link" href="network_conf"><i class="fas fa-network-wired fa-fw mr-2"></i><span class="nav-label"><?php echo _("Networking"); ?></a>
-        </li> 
-          <?php endif; ?>
-          <?php if (RASPI_WIFICLIENT_ENABLED && !$bridgedEnabled) : ?>
-        <li class="nav-item">
-          <a class="nav-link" href="wpa_conf"><i class="fas fa-wifi fa-fw mr-2"></i><span class="nav-label"><?php echo _("WiFi client"); ?></span></a>
-        </li>
-          <?php endif; ?>
-          <?php if (RASPI_OPENVPN_ENABLED) : ?>
-        <li class="nav-item">
-          <a class="nav-link" href="openvpn_conf"><i class="fas fa-key fa-fw mr-2"></i><span class="nav-label"><?php echo _("OpenVPN"); ?></a>
-        </li>
-          <?php endif; ?>
-          <?php if (RASPI_TORPROXY_ENABLED) : ?>
-        <li class="nav-item">
-           <a class="nav-link" href="torproxy_conf"><i class="fas fa-eye-slash fa-fw mr-2"></i><span class="nav-label"><?php echo _("TOR proxy"); ?></a>
-        </li>
-          <?php endif; ?>
-          <?php if (RASPI_CONFAUTH_ENABLED) : ?>
-        <li class="nav-item">
-        <a class="nav-link" href="auth_conf"><i class="fas fa-user-lock fa-fw mr-2"></i><span class="nav-label"><?php echo _("Authentication"); ?></a>
-        </li>
-          <?php endif; ?>
-          <?php if (RASPI_CHANGETHEME_ENABLED) : ?>
-        <li class="nav-item">
-          <a class="nav-link" href="theme_conf"><i class="fas fa-paint-brush fa-fw mr-2"></i><span class="nav-label"><?php echo _("Change Theme"); ?></a>
-        </li>
-          <?php endif; ?>
-          <?php if (RASPI_VNSTAT_ENABLED) : ?>
-        <li class="nav-item">
-          <a class="nav-link" href="data_use"><i class="fas fa-chart-bar fa-fw mr-2"></i><span class="nav-label"><?php echo _("Data usage"); ?></a>
-        </li>
-          <?php endif; ?>
-            <?php if (RASPI_SYSTEM_ENABLED) : ?>
-          <li class="nav-item">
-          <a class="nav-link" href="system_info"><i class="fas fa-cube fa-fw mr-2"></i><span class="nav-label"><?php echo _("System"); ?></a>
-          </li>
-            <?php endif; ?>
-         <li class="nav-item">
-          <a class="nav-link" href="about"><i class="fas fa-info-circle fa-fw mr-2"></i><span class="nav-label"><?php echo _("About RaspAP"); ?></a>
-        </li>
-        -->
+     
+      
         <!-- Divider -->
         <hr class="sidebar-divider d-none d-md-block">
 
@@ -204,23 +145,23 @@ $bridgedEnabled = getBridgedState();
 
     </ul>
     <!-- End of Sidebar -->
-<!--
-    <!-- Content Wrapper 
+
+    <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
 
-    <!-- Main Content 
+    <!-- Main Content -->
     <div id="content">
-      <!-- Topbar 
+      <!-- Topbar -->
       <nav class="navbar navbar-expand navbar-light topbar mb-1 static-top">
-        <!-- Sidebar Toggle (Topbar) 
+        <!-- Sidebar Toggle (Topbar) -->
         <button id="sidebarToggleTopbar" class="btn btn-link d-md-none rounded-circle mr-3">
           <i class="fa fa-bars"></i>
         </button>
-        <!-- Topbar Navbar 
+        <!-- Topbar Navbar -->
         <p class="text-left brand-title mt-3 ml-2"><?php //echo _("WiFi Configuration Portal"); ?></p>
         <ul class="navbar-nav ml-auto">
           <div class="topbar-divider d-none d-sm-block"></div>
-          <!-- Nav Item - User 
+          <!-- Nav Item - User -->
           <li class="nav-item dropdown no-arrow">
           <a class="nav-link" href="auth_conf">
             <span class="mr-2 d-none d-lg-inline small"><?php echo htmlspecialchars($config['admin_user'], ENT_QUOTES); ?></span>
@@ -229,8 +170,8 @@ $bridgedEnabled = getBridgedState();
           </li>
         </ul>
       </nav>
-      <!-- End of Topbar 
-      <!-- Begin Page Content 
+      <!-- End of Topbar -->
+      <!-- Begin Page Content -->
       <div class="container-fluid">
       <?php
         $extraFooterScripts = array();
@@ -282,7 +223,7 @@ $bridgedEnabled = getBridgedState();
             DisplayDashboard($extraFooterScripts);
         }
         ?>
-      </div><!-- /.container-fluid 
+      </div><!-- /.container-fluid -->
     </div><!-- End of Main Content -->
     <!-- Footer -->
     <footer class="sticky-footer bg-grey-100">
