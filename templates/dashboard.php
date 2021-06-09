@@ -7,10 +7,10 @@
       <i class="fas fa-tachometer-alt fa-fw mr-2"></i><?php echo _("Panel de alarmas"); ?>
     </div>
     <div class="col">
-      <button class="btn btn-light btn-icon-split btn-sm service-status float-right">
+   <!--   <button class="btn btn-light btn-icon-split btn-sm service-status float-right">
         <span class="icon"><i class="fas fa-circle service-status-<?php echo $ifaceStatus ?>"></i></span>
         <span class="text service-status"><?php echo strtolower($apInterface) .' '. _($ifaceStatus) ?></span>
-      </button>
+      </button>-->
     </div>
         </div><!-- /.row -->
       </div><!-- /.card-header -->
@@ -23,14 +23,20 @@
               <div class="card-body">
                 <h4 class="card-title"><?php echo _("Historial de alarmas"); ?></h4>
                 <div id="divInterface" class="d-none"><?php echo $apInterface; ?></div>
-                <div class="col-md-12">
+             <!--   <div class="col-md-12">
                   <canvas id="divDBChartBandwidthhourly"></canvas>
+                </div>-->
+                <div class="alert alert-danger">
+              <strong>Valor Mínimo</strong> FIO2: 45[%]   H: 17:45:22
+                </div>
+                <div class="alert alert-danger">
+                <strong>Valor Máximo</strong> VTe: 4445[mL]   H: 21:45:22
                 </div>
               </div><!-- /.card-body -->
             </div><!-- /.card -->
           </div>
 
-          <div class="col-sm-6 align-items-stretch">
+      <!--    <div class="col-sm-6 align-items-stretch">
             <div class="card h-100">
               <div class="card-body wireless">
                 <h4 class="card-title"><?php echo _("Wireless Client"); ?></h4>
@@ -64,11 +70,11 @@
                       <canvas id="divChartLinkQ"></canvas>
                     </div>
                   </div>
-                </div><!--row-->
-              </div><!-- /.card-body -->
-            </div><!-- /.card -->
+                </div><!--row
+              </div><!-- /.card-body 
+            </div><!-- /.card 
           </div><!-- /.col-md-6 -->
-          <div class="col-sm-6">
+        <!--  <div class="col-sm-6">
             <div class="card h-100 mb-3">
               <div class="card-body">
                 <h4 class="card-title"><?php echo _("Connected Devices"); ?></h4>
@@ -112,11 +118,11 @@
                   <?php elseif (sizeof($clients) ==0) : ?>
                       <div class="col-lg-12 mt-3"><?php echo _("No connected devices");?></div>
                   <?php endif; ?>
-                </div><!-- /.table-responsive -->
-              </div><!-- /.card-body -->
-            </div><!-- /.card -->
-          </div><!-- /.col-md-6 -->
-        </div><!-- /.row -->
+                </div><!-- /.table-responsive 
+              </div><!-- /.card-body 
+            </div><!-- /.card 
+          </div> /.col-md-6 
+        </div><!-- /.row 
 
         <div class="col-lg-12 mt-3">
           <div class="row">
@@ -134,7 +140,7 @@
           </div>
         </div>
 
-      </div><!-- /.card-body -->
+      </div><!-- /.card-body 
       <div class="card-footer"><?php echo _("Information provided by ip and iw and from system"); ?></div>
     </div><!-- /.card -->
   </div><!-- /.col-lg-12 -->

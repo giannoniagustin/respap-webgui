@@ -69,6 +69,7 @@ $bridgedEnabled = getBridgedState();
 
     <!-- Bootstrap Core CSS -->
     <link href="dist/bootstrap/css/bootstrap.css" rel="stylesheet">
+    
 
     <!-- SB-Admin-2 CSS -->
     <link href="dist/sb-admin-2/css/sb-admin-2.min.css" rel="stylesheet">
@@ -118,12 +119,13 @@ $bridgedEnabled = getBridgedState();
             <img src="app/img/raspAP-logo.php" class="navbar-logo" width="64" height="64">
           </div>
           <div class="col-xs ml-2">
-            <div class="ml-1">Status</div>
-            <div class="info-item-xs"><span class="icon">
+            <div class="ml-1">Estado</div>
+        <!-- 
+        <div class="info-item-xs"><span class="icon">
               <i class="fas fa-circle <?php echo ($hostapd_led); ?>"></i></span> <?php echo _("Hotspot").' '. _($hostapd_status); ?>
-            </div>
+            </div>-->
             <div class="info-item-xs"><span class="icon">
-              <i class="fas fa-circle <?php echo ($memused_led); ?>"></i></span> <?php echo _("Memory Use").': '. htmlspecialchars($memused, ENT_QUOTES); ?>%
+              <i class="fas fa-circle <?php echo ($memused_led); ?>"></i></span> <?php echo _("Uso Memoria").': '. htmlspecialchars($memused, ENT_QUOTES); ?>%
             </div>
             <div class="info-item-xs"><span class="icon">
               <i class="fas fa-circle <?php echo ($cputemp_led); ?>"></i></span> <?php echo _("CPU Temp").': '. htmlspecialchars($cputemp, ENT_QUOTES); ?>°C
@@ -131,7 +133,7 @@ $bridgedEnabled = getBridgedState();
           </div>
         </div>
         <li class="nav-item">
-          <a class="nav-link" href="wlan0_info"><i class="fas fa-tachometer-alt fa-fw mr-2"></i><span class="nav-label"><?php echo _("Dashboard"); ?></span></a>
+          <a class="nav-link" href="wlan0_info"><i class="fas fa-tachometer-alt fa-fw mr-2"></i><span class="nav-label"><?php echo _("Panel Alarmas"); ?></span></a>
         </li>
      
       
