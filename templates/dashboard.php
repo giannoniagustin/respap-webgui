@@ -22,16 +22,32 @@
             <div class="card mb-3">
               <div class="card-body">
                 <h4 class="card-title"><?php echo _("Historial de alarmas"); ?></h4>
-                <div id="divInterface" class="d-none"><?php echo $apInterface; ?></div>
              <!--   <div class="col-md-12">
                   <canvas id="divDBChartBandwidthhourly"></canvas>
                 </div>-->
-                <div class="alert alert-danger">
+           <!--      <div class="alert alert-danger">
               <strong>Valor Mínimo</strong> FIO2: 45[%]   H: 17:45:22
                 </div>
                 <div class="alert alert-danger">
                 <strong>Valor Máximo</strong> VTe: 4445[mL]   H: 21:45:22
-                </div>
+                </div>   --> 
+                <?php
+                  $row = 1;
+                  if (($handle = fopen("/home/pi/respimon2020/res/FP003.csv", "r")) !== FALSE) {
+                  while (($data = fgetcsv($handle, 1000, ";")) !== FALSE) {
+                              $num = count($data);
+
+                              echo "<div class=\"alert alert-danger \">
+                              <strong>Valor Mínimo</strong> $data[0][%]   $data[1][%]
+                                </div> ";
+                              $row++;
+                             /* for ($c=0; $c < $num; $c++) {
+                                  echo $data[$c] . "<br />\n";
+                              }*/
+                          }
+                          fclose($handle);
+                      }
+                      ?> 
               </div><!-- /.card-body -->
             </div><!-- /.card -->
           </div>
