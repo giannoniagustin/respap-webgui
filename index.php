@@ -46,6 +46,8 @@ require_once 'includes/data_usage.php';
 require_once 'includes/about.php';
 require_once 'includes/openvpn.php';
 require_once 'includes/torproxy.php';
+//require_once 'includes/download.php';
+
 
 $config = getConfig();
 $output = $return = 0;
@@ -54,7 +56,13 @@ $page = $_SERVER['PATH_INFO'];
 $theme_url = getThemeOpt();
 $toggleState = getSidebarState();
 $bridgedEnabled = getBridgedState();
+if ($page == '/download')
+{
+  require 'includes/download.php';
+  return;
 
+
+}
 ?><!DOCTYPE html>
 <html lang="en">
   <head>
@@ -221,6 +229,9 @@ $bridgedEnabled = getBridgedState();
         case "/about":
             DisplayAbout();
             break;
+            case "/download":
+           //   download();
+              break;    
         default:
             DisplayDashboard($extraFooterScripts);
         }
