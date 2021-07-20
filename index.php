@@ -62,7 +62,14 @@ if ($page == '/download')
   return;
 
 
-}
+}/*
+if ($page == '/downloadAll')
+{
+  require 'includes/download.php';
+  return;
+
+
+}*/
 ?><!DOCTYPE html>
 <html lang="en">
   <head>
@@ -231,6 +238,7 @@ if ($page == '/download')
             break;
             case "/download":
            //   download();
+    
               break;    
         default:
             DisplayDashboard($extraFooterScripts);

@@ -24,12 +24,24 @@
               <div class="card-body">
                 <h4 class="card-title"><?php echo _("Historial de alarmas"); ?></h4>
                  <form action="download" method="get">
-             <input type="submit" name="someAction" value="Paciente Actual" />
+             <input type="submit" name="action" value="Actual" />
                 </form> 
 
-                <form action="downloadPhp.php" method="post">
+                <form action="download" method="get">
              <input type="submit" name="someAction" value="Historial" />
                 </form> 
+            <!--         <?php
+                $count=1;
+                $files= getFiles();
+                foreach ($files as $filename)
+                {
+                echo  "<a href=download?action=".$filename.">".$filename." </a>";
+
+                    
+                }
+                
+                
+                ?> -->
 
                 <p>    <h4 class="card-title"><?php echo _("Paciente Actual"); ?></h4>  </p>
                 <!--   <div class="col-md-12">
@@ -44,7 +56,6 @@
                 <?php
                 
                 $row = 1;
-               // $handle = fopen("/home/pi/respimon2020/res/FP003.csv", "r");
                $handle = fopen("/home/pi/respimon2020/res/actual.hist", "r");
                 if (($handle) !== FALSE) {
                   while (($data = fgetcsv($handle, 1000, ";")) !== FALSE) {
@@ -54,9 +65,7 @@
                               <strong>Alarma</strong> $data[0]-$data[1]-$data[2]-$data[3]-$data[4]
                                 </div> ";
                     $row++;
-                    /* for ($c=0; $c < $num; $c++) {
-                                  echo $data[$c] . "<br />\n";
-                              }*/
+                 
                   }
                   fclose($handle);
                 }

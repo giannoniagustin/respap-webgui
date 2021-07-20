@@ -642,5 +642,35 @@ function validate_host($host) {
   return preg_match('/^([a-z\d](-*[a-z\d])*)(\.([a-z\d](-*[a-z\d])*))*$/i', $host);
 }
 
+//
+function getFiles()
+{
+    $dir ='/home/pi/respimon2020/res/history/';
+    $scanned_directory = array_diff(scandir($dir), array('..', '.'));
+   return $scanned_directory;
+
+}
+
+//
+function downloadFiles($file)
+{
+    $dir ='/home/pi/respimon2020/res/history/';
+    $fichero=$dir.$file;
+    if (file_exists($fichero)) {
+ 
+     header('Content-Description: File Transfer');
+     header('Content-Type: application/octet-stream');
+     header('Content-Disposition: attachment; filename="'.basename($fichero).'"');
+     header("Content-Transfer-Encoding: Binary"); 
+ 
+     header('Expires: 0');
+     header('Cache-Control: must-revalidate');
+     header('Pragma: public');
+     header('Content-Length: ' . filesize($fichero));
+     readfile($fichero);
+     exit;
+    }
+
+}
 
 
