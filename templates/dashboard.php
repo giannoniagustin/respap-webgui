@@ -56,7 +56,7 @@
                 <?php
                 
                 $row = 1;
-               $handle = fopen("/home/pi/respimon2020/res/actual.hist", "r");
+               $handle = fopen("/home/pi/respimon2020/res/history/actual.hist", "r");
                 if (($handle) !== FALSE) {
                   while (($data = fgetcsv($handle, 1000, ";")) !== FALSE) {
                     $num = count($data);
